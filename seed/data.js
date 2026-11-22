@@ -13,6 +13,7 @@ export const profile = {
   ],
   email: "manasmggupta@gmail.com",
   phone: "+91 9555998119",
+  whatsapp: "919555998119",
   location: "New Ashok Nagar, Delhi",
   resumeUrl: "/Manas_Gupta_Resume.pdf",
   github: "https://github.com/manasgupta-14",

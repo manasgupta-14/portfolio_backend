@@ -13,6 +13,7 @@ const profileSchema = new Schema(
     photo: { type: String, default: "" },
     email: { type: String, default: "" },
     phone: { type: String, default: "" },
+    whatsapp: { type: String, default: "" },
     location: { type: String, default: "" },
     resumeUrl: { type: String, default: "" },
     github: { type: String, default: "" },
@@ -89,8 +90,6 @@ const messageSchema = new Schema(
     name: { type: String, required: true, trim: true, maxlength: 120 },
     email: { type: String, required: true, trim: true, maxlength: 200 },
     message: { type: String, required: true, trim: true, maxlength: 4000 },
-    emailSent: { type: Boolean, default: false },
-    whatsappSent: { type: Boolean, default: false },
     read: { type: Boolean, default: false },
   },
   opts

@@ -6,7 +6,7 @@ import { removeFileByUrl } from "../utils/files.js";
 const router = Router();
 
 const FIELDS = [
-  "name", "roles", "tagline", "aboutParagraphs", "photo", "email", "phone",
+  "name", "roles", "tagline", "aboutParagraphs", "photo", "email", "phone", "whatsapp",
   "location", "resumeUrl", "github", "linkedin", "youtube", "instagram", "facebook",
 ];
 
