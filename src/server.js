@@ -18,9 +18,19 @@ const app = express();
 app.set("trust proxy", 1);
 app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
 
-const origins = (process.env.CLIENT_URL || "http://localhost:5173")
-  .split(",").map((s) => s.trim()).filter(Boolean);
-app.use(cors({ origin: origins }));
+// Allowed frontend origins. Extra ones can be added via CLIENT_URL (comma separated).
+// Trailing slashes are stripped because browsers send the Origin header without one.
+const defaultOrigins = [
+  "http://localhost:5173",
+  "https://portfolio-manas-gupta.vercel.app",
+];
+const origins = [
+  ...defaultOrigins,
+  ...(process.env.CLIENT_URL || "").split(","),
+]
+  .map((s) => s.trim().replace(/\/+$/, ""))
+  .filter(Boolean);
+app.use(cors({ origin: [...new Set(origins)], credentials: true }));
 app.use(express.json({ limit: "1mb" }));
 
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
